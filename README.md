@@ -119,7 +119,7 @@ To run the project, execute the following command:
 
 ```sh
   rails console
-  Twilio::SmsService.new.call
+  Twilio::SmsService.new(body: "Message", phone_number: "+55111234567890").call
 ```
 
 ### Run tests
