@@ -1,4 +1,4 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -19,27 +19,47 @@
   </div>
 
   <div class="field">
-    <%= form.label :password_digest, style: "display: block", class: "label" %>
+    <%= form.label :password, style: "display: block", class: "label" %>
     <div class="control">
-      <%= form.text_field :password_digest, class: "input" %>
+      <%= form.password_field :password, class: "input" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :phone_number, style: "display: block", class: "label" %>
+    <%= form.label :password_confirmation, style: "display: block", class: "label" %>
     <div class="control">
-      <%= form.text_field :phone_number, class: "input" %>
+      <%= form.password_field :password_confirmation, class: "input" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :verified, style: "display: block", class: "label" %>
+    <%= form.label :displayed_phone_number, style: "display: block", class: "label" %>
     <div class="control">
-      <%= form.check_box :verified, class: "input" %>
+      <%= form.text_field :displayed_phone_number, type: 'tel', class: "input" %>
     </div>
   </div>
 
-  <div class="action control">
-    <%= form.submit class: "button is-link is-light" %>
+  <div class="control mb-4">
+    <label for="channel">Verification Method</label>
+    <label class="radio">
+      <input type="radio" name="channel" value="sms" checked>
+      SMS
+    </label>
+    <label class="radio">
+      <input type="radio" name="channel" value="voice">
+      Call
+    </label>
+  </div>
+
+  <div class="actions control">
+    <%= form.submit 'Sign Up', class: "button is-link is-light" %>
   </div>
 <% end %>
+
+<script>
+  var input = document.querySelector("#user_displayed_phone_number");
+  window.intlTelInput(input, {
+    hiddenInput: "phone_number",
+    preferredCountries: ["us", "gb", "co", "de"]
+  });
+</script>

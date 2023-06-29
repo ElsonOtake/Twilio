@@ -3,4 +3,9 @@ class User < ApplicationRecord
   
   validates :username, presence: true
   validates :phone_number, presence: true
+
+  def to_json(options={})
+    options[:except] ||= [:verified]
+    super(options)
+  end
 end

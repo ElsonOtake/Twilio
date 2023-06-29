@@ -1,0 +1,19 @@
+<p id="alert"><%= alert %></p>
+<h1 class="title has-text-info">Login</h1>
+<%= form_tag sessions_path do |form| %>
+  <div class="field">
+    <%= label_tag :username %>
+    <div class="control">
+      <%= text_field_tag :username %>
+    </div>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <div class="control">
+      <%= password_field_tag :password %>
+    </div>
+  </div>
+  <div class="actions control">
+    <%= submit_tag 'Login', class: "button is-link is-light" %>
+  </div>
+<% end %>
