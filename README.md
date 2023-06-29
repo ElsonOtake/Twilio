@@ -14,7 +14,6 @@
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -26,8 +25,7 @@
 
 # 📖 Twilio <a name="about-project"></a>
 
-**Twilio** is a ...
-
+**Twilio** is used for SMS sending and Twilio Verify tests
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -122,13 +120,11 @@ To run the project, execute the following command:
   Twilio::SmsService.new(body: 'Your message', phone_number: '+55111234567890').call
 ```
 
-### Run tests
-
-To run tests, run the following command:
-
 ```sh
-
+  bin/dev
 ```
+Open `http://localhost:3000/` on your browser.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
