@@ -1,14 +1,27 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
+<h1 class="title has-text-info">Users</h1>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>User name</th>
+      <th>Phone number</th>
+      <th>verified</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th><%= user.username %></th>
+        <td><%= user.phone_number %></td>
+        <td><%= user.verified %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Destroy', user_path(user), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New user", new_user_path %>
+<%= link_to "New user", new_user_path, class: "button is-link is-light" %>

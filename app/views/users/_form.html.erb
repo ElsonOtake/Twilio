@@ -11,27 +11,35 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
+  <div class="field">
+    <%= form.label :username, style: "display: block", class: "label" %>
+    <div class="control">
+      <%= form.text_field :username, class: "input" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :password_digest, style: "display: block" %>
-    <%= form.text_field :password_digest %>
+  <div class="field">
+    <%= form.label :password_digest, style: "display: block", class: "label" %>
+    <div class="control">
+      <%= form.text_field :password_digest, class: "input" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :phone_number, style: "display: block" %>
-    <%= form.text_field :phone_number %>
+  <div class="field">
+    <%= form.label :phone_number, style: "display: block", class: "label" %>
+    <div class="control">
+      <%= form.text_field :phone_number, class: "input" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :verified, style: "display: block" %>
-    <%= form.check_box :verified %>
+  <div class="field">
+    <%= form.label :verified, style: "display: block", class: "label" %>
+    <div class="control">
+      <%= form.check_box :verified, class: "input" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="action control">
+    <%= form.submit class: "button is-link is-light" %>
   </div>
 <% end %>
